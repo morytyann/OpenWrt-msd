@@ -1,8 +1,6 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=msd
-PKG_VERSION:=1.0.0
-PKG_RELEASE:=release
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/rozhuk-im/msd.git
@@ -17,12 +15,12 @@ CMAKE_OPTIONS+= -DCONFDIR=bin
 define Package/msd
   SECTION:=net
   CATEGORY:=Network
-  TITLE:=Program for organizing IP TV streaming on the network via HTTP
+  TITLE:=Program for organizing IPTV streaming on the network via HTTP
   URL:=http://www.netlab.linkpc.net/wiki/software:msd:index
 endef
 
 define Package/msd/description
- Multi Stream daemon (msd) - is a program for organizing streaming IP TV on the network via HTTP.
+ Multi Stream daemon (msd) - is a program for organizing streaming IPTV on the network via HTTP.
  One server can serve thousands of clients simultaneously.
  The focus is on maximum performance, as well as a variety of subtle adjustments related to the perceptual quality of customer service: speed channel switching, fault tolerance transfer.
  Implemented proxying one to many: the data received via the one HTTP connection to be given away to the set of connected clients.

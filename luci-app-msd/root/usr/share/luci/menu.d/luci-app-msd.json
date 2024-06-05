@@ -1,6 +1,6 @@
 {
 	"admin/services/msd": {
-		"title": "msd",
+		"title": "MSD",
 		"action": {
 			"type": "view",
 			"path": "msd"

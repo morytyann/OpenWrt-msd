@@ -14,7 +14,7 @@ return view.extend({
     render: function (data) {
         let m, s, o;
 
-        m = new form.Map('msd', _('msd'), _('msd is a program for organizing IPTV streaming on the network via HTTP.'));
+        m = new form.Map('msd', _('MSD'), _('MSD is a program for organizing IPTV streaming on the network via HTTP.'));
 
         s = m.section(form.NamedSection, 'config', 'config');
 
@@ -25,16 +25,20 @@ return view.extend({
 
         o = s.taboption('basic', form.Value, 'bind_address', _('Bind Address'));
         o.datatype = 'hostport';
+        o.placeholder = '0.0.0.0:7088';
 
         o = s.taboption('basic', widgets.DeviceSelect, 'bind_interface', _('Bind Interface'));
-        o.optional = true;
+        o.noaliases = true;
 
         o = s.taboption('basic', widgets.DeviceSelect, 'source_interface', _('Source Interface'));
+        o.optional = false;
+        o.noaliases = true;
 
         s.tab('advanced', _('Advanced Config'));
 
         o = s.taboption('advanced', form.Value, 'thread_count', _('Thread Count'));
         o.datatype = 'uinteger';
+        o.placeholder = '0';
 
         o = s.taboption('advanced', form.Flag, 'thread_bind_cpu', _('Thread Bind CPU'));
         o.rmempty = false;
@@ -50,12 +54,15 @@ return view.extend({
 
         o = s.taboption('advanced', form.Value, 'hub_precache_size', _('Precache Size'));
         o.datatype = 'uinteger';
+        o.placeholder = '2048';
 
         o = s.taboption('advanced', form.Value, 'source_ring_buffer_size', _('Ring Buffer Size'));
         o.datatype = 'uinteger';
+        o.placeholder = '8192';
 
         o = s.taboption('advanced', form.Value, 'source_rejoin_time', _('Rejoin Time'));
         o.datatype = 'uinteger';
+        o.placeholder = '180';
 
         return m.render();
     }
