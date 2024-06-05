@@ -28,10 +28,13 @@ return view.extend({
         o.placeholder = '0.0.0.0:7088';
 
         o = s.taboption('basic', widgets.DeviceSelect, 'bind_interface', _('Bind Interface'));
+        o.optional = true;
+        o.rmempty = false;
         o.noaliases = true;
 
         o = s.taboption('basic', widgets.DeviceSelect, 'source_interface', _('Source Interface'));
         o.optional = false;
+        o.rmempty = false;
         o.noaliases = true;
 
         s.tab('advanced', _('Advanced Config'));
