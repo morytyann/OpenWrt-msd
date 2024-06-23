@@ -46,11 +46,26 @@ return view.extend({
         o = s.taboption('advanced', form.Flag, 'thread_bind_cpu', _('Thread Bind CPU'));
         o.rmempty = false;
 
+        o = s.taboption('advanced', form.Flag, 'hub_drop_slow_client', _('Drop Slow Client'));
+        o.rmempty = false;
+
         o = s.taboption('advanced', form.Flag, 'hub_use_polling_for_send', _('Use Polling For Send'));
         o.rmempty = false;
 
         o = s.taboption('advanced', form.Flag, 'hub_zero_copy_on_send', _('Zero Copy On Send'));
         o.rmempty = false;
+
+        o = s.taboption('advanced', form.Flag, 'hub_persist_when_no_source', _('Persist Hub When No Avalible Source'));
+        o.rmempty = false;
+
+        o = s.taboption('advanced', form.Flag, 'hub_persist_when_no_client', _('Persist Hub When No Conectted Client'));
+        o.rmempty = false;
+
+        o = s.taboption('advanced', form.Value, 'hub_destroy_when_no_client_timeout', _('Destroy Hub Timeout(No Connectted Client)'));
+        o.datatype = 'uinteger';
+        o.placeholder = '60';
+        o.retain = true;
+        o.depends('hub_persist_when_no_client', '0');
 
         o = s.taboption('advanced', form.Flag, 'hub_wait_precache', _('Wait Precache'));
         o.rmempty = false;
@@ -63,7 +78,7 @@ return view.extend({
         o.datatype = 'uinteger';
         o.placeholder = '8192';
 
-        o = s.taboption('advanced', form.Value, 'source_rejoin_time', _('Rejoin Time'));
+        o = s.taboption('advanced', form.Value, 'source_multicast_rejoin_interval', _('Multicast Rejoin Interval'));
         o.datatype = 'uinteger';
         o.placeholder = '180';
 
